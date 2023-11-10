@@ -28,7 +28,7 @@ router.post('/', (req, res) => {
     
 
     const sqlValues = [
-        req.body.text, //$1
+        req.body.toDoText, //$1
         req.body.isComplete, //$2
     ]
 
