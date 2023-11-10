@@ -6,8 +6,8 @@ function getTodos() {
     axios({
         type: 'GET',
         url: '/todos'
-    }).then(response => {
-        renderTodos(response.data)
+    }).then(res => {
+        renderTodos(res.data)
     }).catch((error) => {
         console.log('error with GET', error);
       })
@@ -18,6 +18,7 @@ function addTodo(event) {
     event.preventDefault()
     
     let toDoText = document.getElementById('toDoTextInput').value;
+    document.getElementById('toDoTextInput').value = ""
     
     axios({
         method: 'POST',
@@ -52,6 +53,20 @@ function renderTodos(todos) {
     }
         
 };
+
+function updateKoalaTransferStatus(event){
+    let todoID = event.target.closest("ul").getAttribute("data-todoid");
+    console.log(todoID);
+    axios({
+      method: 'PUT',
+      url: `todos/${todoID}`
+    }).then((response)=>{
+      console.log("koalaByID");
+      getKoalas();
+    }).catch((error)=>{
+      console.log("error in put",error)
+    })
+  }
 
 
 
