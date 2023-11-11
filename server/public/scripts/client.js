@@ -1,14 +1,10 @@
-//getting the response/data from server
-
-
-
-//rending the data  
 getTodos();
 
-
+//getting the response/data from server
+//rending the data  
 function getTodos(){
-    console.log( 'in getKoalas' );
-    // axios call to server to get koalas
+    console.log( 'in getTodos' );
+    // axios call to server to get todos
     axios({
       method: 'GET',
       url: '/todos'
@@ -52,13 +48,14 @@ function renderTodos(todos) {
     for (let todo of todos) {
         todoList.innerHTML +=
             `
-            <ul data-testid="toDoItem" data-todoid = "${todo.id}">
-            <li class = ${todo.isComplete ? "completed" : "todo-is-not-complete"}>${todo.text}</li>
-          <button onclick="updateTodoStatus(event)">${todo.isComplete}</button>
-           <button data-testid="deleteButton" onclick ="deleteTodo(event)">delete</button>
+            <ul data-todoid = "${todo.id}">
+            <li data-testid="toDoItem" class=${todo.isComplete ? "completed" : "todo-is-not-complete"}>${todo.text} 
+             <button data-testid="completeButton" onclick="updateTodoStatus(event)">${todo.isComplete}
+             </button>  <button data-testid="deleteButton" onclick ="deleteTodo(event)">delete</button> </li>
          </ul>
             `
     }
+
 
 };
 
@@ -66,7 +63,7 @@ function deleteTodo(event) {
     event.preventDefault();
     let clickedButton = event.target;
     console.log(clickedButton);
-    let theTableRow = clickedButton.closest("li");
+    let theTableRow = clickedButton.closest("ul");
  
     console.log(theTableRow);
     let TodoId = theTableRow.getAttribute("data-todoid");
