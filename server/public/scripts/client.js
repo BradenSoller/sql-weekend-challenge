@@ -50,8 +50,8 @@ function renderTodos(todos) {
             `
             <ul data-todoid = "${todo.id}">
             <li data-testid="toDoItem" class=${todo.isComplete ? "completed" : "todo-is-not-complete"}>${todo.text} 
-             <button data-testid="completeButton" onclick="updateTodoStatus(event)">${todo.isComplete}
-             </button>  <button data-testid="deleteButton" onclick ="deleteTodo(event)">delete</button> </li>
+             <button id="updateButton"data-testid="completeButton" onclick="updateTodoStatus(event)">${todo.isComplete}
+             </button>  <button id="deleteButton" data-testid="deleteButton" onclick ="deleteTodo(event)">delete</button> </li>
          </ul>
             `
     }

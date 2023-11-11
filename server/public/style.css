@@ -10,3 +10,34 @@
     color: rgb(19, 164, 0);
 }
 
+
+
+
+    header{
+        text-align: center;
+        background-color: rgb(0, 0, 0);
+        color: aliceblue;
+    }
+
+    #updateButton{
+        background-color: black;
+        color: white;
+        border-radius: 50px;
+        font-family: poppins;
+        
+    }
+
+    #deleteButton{
+        background-color: black;
+            color: white;
+            border-radius: 50px
+    }
+    #SubmitTodo{
+        background-color: black;
+            color: white;
+    }
+
+
+
+
+
