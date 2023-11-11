@@ -19,17 +19,17 @@ router.post('/', (req, res) => {
     console.log('In post route', req.body);
     let queryText = `
     INSERT INTO "todos"
-    ("text", "isComplete")
+    ("text")
     VALUES
-    ($1, $2);
+    ($1);
 
     `
     
     
+    
 
     const sqlValues = [
-        req.body.toDoText, //$1
-        req.body.isComplete, //$2
+        req.body.toDoText //$1
     ]
 
     pool.query(queryText, sqlValues)
@@ -84,7 +84,7 @@ router.delete('/:id',(req,res)=>{
         res.sendStatus(200);
     })
     .catch((dbError)=> {
-        console.log("DELETE /koalas/:id failed:", dbError);
+        console.log("DELETE /todos/:id failed:", dbError);
         res.sendStatus(500);
     })
 });

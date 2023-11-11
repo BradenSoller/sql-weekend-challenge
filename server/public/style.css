@@ -1,0 +1,12 @@
+.completed {
+    text-decoration: line-through;
+        color: red;
+    
+
+}
+
+.todo-is-not-complete {
+
+    color: rgb(19, 164, 0);
+}
+
