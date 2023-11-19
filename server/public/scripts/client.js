@@ -54,6 +54,7 @@ function renderTodos(todos) {
              <button type="button" class="btn btn-success" id="updateButton"data-testid="completeButton" onclick="updateTodoStatus(event)">complete
              </button><button type="button" class="btn btn-danger" id="deleteButton" data-testid="deleteButton" onclick ="deleteTodo(event)">delete</button></li>
          </ul>
+         
             `
     }
 

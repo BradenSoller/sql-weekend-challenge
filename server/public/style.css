@@ -86,6 +86,6 @@ h3
     color: azure;
 }
 
-#updateButton{
-    content: 'complete';
+#SubmitTodo{
+    margin: 5px;
 }
