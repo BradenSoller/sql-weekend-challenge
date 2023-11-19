@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const pool = require('../modules/pool');
 
+
 router.get('/', (req, res) => {
     let queryText = 'SELECT * FROM "todos" ORDER BY "id";'
     pool.query(queryText)

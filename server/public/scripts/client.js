@@ -48,10 +48,11 @@ function renderTodos(todos) {
     for (let todo of todos) {
         todoList.innerHTML +=
             `
-            <ul data-todoid = "${todo.id}">
+          
+            <ul data-todoid = "${todo.id}" class = "text">
             <li data-testid="toDoItem" class=${todo.isComplete ? "completed" : "todo-is-not-complete"}>${todo.text} 
-             <button id="updateButton"data-testid="completeButton" onclick="updateTodoStatus(event)">${todo.isComplete}
-             </button>  <button id="deleteButton" data-testid="deleteButton" onclick ="deleteTodo(event)">delete</button> </li>
+             <button type="button" class="btn btn-success" id="updateButton"data-testid="completeButton" onclick="updateTodoStatus(event)">${todo.isComplete}
+             </button><button type="button" class="btn btn-danger" id="deleteButton" data-testid="deleteButton" onclick ="deleteTodo(event)">delete</button></li>
          </ul>
             `
     }
@@ -60,6 +61,7 @@ function renderTodos(todos) {
 };
 
 function deleteTodo(event) {
+  alert('are you sure you want to delete this ?')
     event.preventDefault();
     let clickedButton = event.target;
     console.log(clickedButton);
@@ -85,8 +87,6 @@ function deleteTodo(event) {
 
 
 function updateTodoStatus(event) {
-    
-
     let todoID = event.target.closest("ul").getAttribute("data-todoid");
     console.log(todoID);
     axios({

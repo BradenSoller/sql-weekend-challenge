@@ -1,16 +1,25 @@
 const pg = require('pg')
 
-let databaseName = 'weekend-to-do-app'
+let databaseName = 'to_do_app'
 
 if (process.env.NODE_ENV === 'test') {
   databaseName = 'prime_testing'
 }
 
-const pool = new pg.Pool({
-    host: 'localhost',
-    port: 5432,
-    database: "weekend-to-do-app",
-    allowExitOnIdle: true 
-})
+let pool;
+if (process.env.DATABASE_URL) {
 
+     pool = new pg.Pool({
+      connectionString: process.env.DATABASE_URL,
+        ssl: {
+            rejectUnauthorized: false
+        }
+  })} else {
+     pool = new pg.Pool({
+    host: 'localhost'
+    port: 5432,
+    database: "to_do_app",
+    allowExitOnIdle: true
+  })
+}
 module.exports = pool
