@@ -16,7 +16,7 @@ if (process.env.DATABASE_URL) {
         }
   })} else {
      pool = new pg.Pool({
-    host: 'localhost'
+    host: 'localhost',
     port: 5432,
     database: "to_do_app",
     allowExitOnIdle: true
